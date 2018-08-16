@@ -1,0 +1,21 @@
+svn checkout http://... (obtener repositorio)
+svn info (obtener informacion del repositorio)
+svn update	(obtener cambios realizados en el repositorio)
+svn status -v ruta (ver estado del repositorio)
+svn status -v -u ruta (ver estado del repositorio)
+svn add ruta (agregar cambios al index local)
+svn commit -m 'comentario' ruta (enviar index al head)
+svn diff ruta 
+svn log -v -r --limit 100 ruta
+svn list -v ruta (navegar en repositorio)
+
+svn resolved ruta (resuelve conflitos)
+svn rename rutaactual nuevaruta (renombre directorios)
+svn delete ruta (elimina directorio)
+svn status -v ruta (revierte el directorio)
+svn cleanup ruta (realiza un clean en el repo)
+svn swith url ruta (cambiar de rama)
+svn merge --force gromurl tourl (fusionar)
+
+svnadmin create -fs-type fsfs ruta (crear repositorio)
+

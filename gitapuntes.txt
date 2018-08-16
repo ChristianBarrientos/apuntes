@@ -1,0 +1,63 @@
+
+#Flujo de TRabajo
+1-git pull
+2-TRabajar el codigo
+3-git commit -am 'comentario'
+4-git push
+
+#Identificacion
+git config --global user.name "Nombre que quieras mostrar"
+git config --global user.email "correo@correo.com"
+git config --global color.ui true
+git config --list (mas opciones)
+git config --global core.editor vim'
+
+#Repositorio
+git init (inicia repositorio)
+git clone link_repositorio (clona repositorio)
+git add (recopila los cambios realizados en el directorio del repositorio)
+git commit​ (envia los cambios al servidor)
+git add . (recopila todos los cambios)
+git status 
+git commit -m "Comentario al commit donde describo los cambios"
+git add -A (archivos eliminados)
+git commit -a (equibalente a git add -A + git commit a de ALL)
+git remote -v (obtener informacion del repositorio remoto)
+git fetch (traer cambios del repositorio)
+git merge (unir los cambios traidos a tu directorio local)
+
+git pull (obtener cambios del repositorio al directorio local git-fetch + git-merge)
+git push (envia cambios al repositorio remoto)
+
+git commit --amend (rehacer el ultimo commit)
+git checkout -- NOMBRE_DEL_ARCHIVO (deshacer cambios a un archivo)
+git log
+git log --graph --oneline
+git remote add personal git://github.com/psicobyte/repo-ejemplo.git (agregar un repositorio)
+git remote rm NOMBRE (eliminar un repositorio)
+git remote rename NOMBRE_ANTERIOR NOMBRE_ACTUAL (cambiar nombre a repositorio)
+
+#Volver al pasado
+git reset --hard HASH_DEL_COMMIT_A_RECUPERAR (se pierden todos los commit posteriores)
+
+git show HASH_DE_UN_COMMIT (cambios realizados en un commit)
+git show HASH_DE_UN_COMMIT:ruta/a/un/archivo (cambiso realizados de ese archivos en ese comit)
+
+
+#Archivo Git Ignore
+"​.config/git/ignore ​ " ruta predefinida 
+git config --global core.excludesfile RUTA_AL_ARCHVO_IGNORE
+
+#Ramas 
+git branch get-dir  (crear rama)
+git checkout get-dir (cambiar a la rama anteriormente creada)
+git push --set-upstream origin get-dir (enviar rama al repositorio, fusionarla)
+	get-dir nombre de la rama creada
+git branch --all (listar ramas)
+git branch -vv (doble verbosidad)
+git branch -d get-dir (borrar rama local)
+
+#FUsionar rama 
+git checkout master
+git pull origin get-dir
+

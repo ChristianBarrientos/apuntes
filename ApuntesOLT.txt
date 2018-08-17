@@ -1,0 +1,107 @@
+Listar onus
+##show olt <idilt> all-onu-info
+show olt 1 all-onu-info
+Detalles de la OLT
+##show olt <idolt> attribute
+Listar mac-address conectadas a la olt
+##show olt <oltId> mac-address-table <onu>
+show olt 1 mac-address-table 1
+
+Ver estado de Onu 
+##show olt <oltID> online-onu
+show olt 1 online-onu
+Ver Informacion de Hard de la onu
+##show olt <oltID> onu <onuID> ctc capabilities
+Ver Informacion de atributos de onu
+## show olt <oltID> onu <onuID> ctc attribute
+ show olt 2 onu 1 ctc capabilities
+Ver networking de onu
+##show olt 1 onu 1 ctc mng-ip
+
+show olt 2 onu 1 ctc mng-ip
+Acceder a ONU
+## onu <onuID>
+Reiniciar ONU
+##ctc reboot
+Ver informacion de alarma configurada en la onu
+##show olt <oltID> onu <onuID> ctc alarm port
+show olt 2 onu 1 ctc alarm port
+Ver configuracion VOIP de ONU
+## show olt <oltId> onu <onuid> ctc voip < fax-modem |global-config|h248-config|h248-rtp-tid| h248-rtp-tid-info|iad-infor|sip-config>
+Configurar velocidad de subida onu (debe estar dentro de la onu)
+##sla upstream <fix> <cir> <pir> <weight>
+	<fix> Fijo de ancho de banda <0~950000>Kbps
+	<cir> Minimo(asegurado) de ancho de banda <1~950000>Kbps
+	<pir> Mejor esfuerzo de ancho de banda <512~1000000>Kbps
+	<weight> Peso (Prioridad?) <1~20>
+Ver ONLU LINK
+## show olt <oltID> onu <onuID> link <linkID> acl
+Configurar velocidad de bajada onu (debe estar dentro de la onu)
+##sla downstream <pir> <burst>
+	<burst> Rafaga <128~16383>*256Byte
+Ver COnfiguracion de ancho debanda 
+##show olt <oldID> onu <onuID> link <linkID> sla
+Ver ESTADISTICAS de performance de ONU
+## show olt <oltID> onu <onuID> pon ctc current-period-statistics
+Ver puerto CATV de onu
+## show olt <oltID> onu <onuID> catv
+Ver puerto de VOICE (telefono?)
+## show olt <oltID> onu <onuID> onuid <pots> ctc status
+	<pots> puertos previamente configurado ?
+Ver ESTADISTICAS de onu
+## show olt <oltID> onu <oltID> uni <uni> ctc current-period-statistics
+	<uni> puerto de la onu ?
+Ver ESTADISTICAS de onu
+## show olt <onuID> onu <onuID> uni <uni> ctc lasttime-period-statistics
+
+########################################################
+Configurara VELOCIDAD DE SUBIDA onu (dentro de onu (onu)?)
+## ctc ingress-policy <max-rate>
+Configurara VELOCIDAD DE BAJADA onu (dentro de onu (onu)?)
+##ctc egress-policing <max-rate>
+BAJAR/SUBIR/ VELOCIDAD  /CORTE SERVICIO
+olt 1
+onu idonu
+acl rule downstream 7 matching
+sla downstream 1024 128 5
+sla upstream 1024 1024 1024 1
+
+sla downstream 0 128 5
+
+
+########################
+pon ctc statistics
+uni 1 ctc statistics
+ALARMA AGREGADA OLT
+rmon alarm add 1 1.3.6.1.2.1.16.1.1.1.4.1 5 absolute 40000 1 20000 1 yx 
+
+#AGREGAR ALARMA EN ONU
+ctc alarm statistics pon-if downUndersize enable 1000 1000 
+#VER ALARMA EN ONU
+show olt 1 onu 2 ctc alarm port
+#VER ESTADISTICAS
+show olt 1 onu 1 pon ctc current-period-statistics   ##Tiempo Real
+Downstream CRC error frames --> Perdida que posee
+show olt 2 onu 1 uni 1 ctc current-period-statistics
+#VER CONECTADOS A UNI
+show olt 1 onu 1 uni 1 mac-address-table
+show olt 2 onu 1 uni 1 mac-address-table
+#CONFIGURAR VELOCIDAD DE SUBIDA
+epon(olt-5/onu-6/uni-1)#ctc ingress-policy <max-rate>
+#CONFIGURAR VELOCIDAD DE BAJADA 
+epon(olt-5/onu-6/uni-1)#ctc egress-policing 5000
+?
+#VER VALORES OPTICOS 
+show olt 1 optical-online-onu
+
+
+VER DIFERENCIAS ENTRE : 
+show olt 1 mac-address-table
+show mac-address-table all
+show olt 1 all-onu-info
+
+epon(olt-5/onu-6/uni-1)#ctc alarm statistics pon-if downUndersize enable 10 10 
+
+show olt 5 onu 27 pon ctc current-period-statistics 
+show olt 2 onu 27 uni 1 ctc current-period-statistics
+show olt 2 onu 27 uni 1 mac-address-table

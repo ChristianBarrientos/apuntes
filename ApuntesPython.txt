@@ -1,0 +1,28 @@
+virtualenv			  #Crear Entorno Virtual
+django-admin startproject mysite  #Crear proyecto
+./manage.py runserver 0.0.0.0:8000
+python manage.py runserver 	  #Iniciar servidor de desarrollo, dentro del proyecto
+python manage.py runserver 0:8000 #En tdas als Ip
+django-admin.py startapp nombreapp
+python manage.py startapp nombreapp# Crear aplicacion, dentro del proyecto
+virtualenv appgpon		  # Crear entronoVirtual
+source ~/activate		  #Ingresar a entorno virtual
+deactivate			  #Salir de entorno virtual
+django-admin startapp nameapp	  #Crear aplicacion del Proyecto
+python manage.py makemigrations   # Compilar el modelo de datos
+python manage.py migrate          # Migrar BD
+./manage.py createsuperuser	  #Crear usuario administrador para el proyecto
+./manage.py collectstatic	  #Recopilar contenido estatico en la ubicacion definida
+pip freeze			  #Ver dependencias INstaladas
+##Configuracion del archivo settings.py
+ALLOWED_HOSTS = ["192.168.16.129", "127.0.0.1", "127.0.1.1"]  # Direccionamiento
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')	  	      #Agregar ubicacion para archivos estaticos
+
+## Migraciones con South
+pip install south
+
+python manage.py shell	 	  # Shell Python
+from mis_apps.x import X,Y	  #Importar los modelos a trabajar
+nombremodelo.objects.create	  #Crear Objeto e insertar en BD
+objeto.save			  #Guardar se plasma en BD
+

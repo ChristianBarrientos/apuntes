@@ -1,0 +1,55 @@
+OLT
+Listar ONUS en OLT
+#show olt <idOlt> all-onu-info
+
+
+ONU
+Ver capacidades de hardware de la ONU
+show olt 1 onu 1 ctc capabilities
+Ver Ancho de Banda
+epon(olt-5/onu-6)#show olt 1 onu 1 link 1 sla 
+Modificar Ancho de Banda
+epon(olt-5/onu-7/link-1)#sla downstream 10000016385 
+epon(olt-5/onu-7/link-1)#sla upstream 5000 1000u01000001
+
+MONITOREO DE TRANSITO
+show olt 1 onu 3 pon ctc statistics -- Ver configuraion actual 
+(Debe estar Desactivado para mostrar valores de todas las uni?)
+epon(olt-5/onu-6)#pon ctc statistics enable 40 -- Encender Monitoreo de estadisticas EN ONU
+pon ctc statistics disable -- Apagar
+show olt 1 onu 3 uni 1 ctc current-period-statistics
+show olt 1 onu 3 pon ctc current-period-statistics
+show olt 1 onu 3 pon ctc lasttime-period-statistics --Ultimo Registro Guardadio 
+show olt 2 onu 1 uni 3 mac-address-table
+
+
+///////
+##Monitoreo PASOS
+epon(olt-5/onu-6)#pon ctc statistics enable 40 -- Encender Monitoreo de estadisticas EN ONU
+show olt 5 onu 6 pon ctc current-period-statistics -- Tomar Medida
+show olt 5 onu 6 pon ctc current-period-statistics -- Tomar Medida
+show olt 5 onu 6 pon ctc current-period-statistics -- Tomar Medida
+....
+epon(olt-5/onu-6)#pon ctc statistics disable -- Apagar Monitoreo
+/////
+epon(olt-5/onu-6/uni-1)#ctc statistics enable 5000 -- Encender Monitoreo de estadisticas EN uni
+
+ 2     27   e0-67-b3-3a-99-3e  online     V2.1.2        0(system)
+
+ALARMAS ENCENDIDAS  EN ONU TUCUMAN
+ Port     Alarm(port)          State   Threshold    ClearingAlarmThreshold
+ uni-1    EthPortAutoNegFail  disable    0            0
+  uni-1    EthPortLOS          disable    0            0
+  uni-1    EthPortFail         disable    0            0
+  uni-1    EthPortLoopback     enable     0            0
+  uni-1    EthPortCongestion   disable    0            0
+  uni-2    EthPortAutoNegFail  disable    0            0
+  uni-2    EthPortLOS          disable    0            0
+  uni-2    EthPortFail         disable    0            0
+  uni-2    EthPortLoopback     enable     0            0
+  uni-2    EthPortCongestion   disable    0            0
+  uni-3    EthPortAutoNegFail  disable    0            0
+  uni-3    EthPortLOS          disable    0            0
+  uni-3    EthPortFail         disable    0            0
+  uni-3    EthPortLoopback     enable     0            0
+  uni-3    EthPortCongestion   disable    0            0

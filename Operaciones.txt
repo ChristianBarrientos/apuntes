@@ -2,6 +2,8 @@ OLT
 Listar ONUS en OLT
 #show olt <idOlt> all-onu-info
 
+VER DISPOSITIVOS CONECTADOS?
+#show olt 2 mac-address-table 6
 
 ONU
 Ver capacidades de hardware de la ONU

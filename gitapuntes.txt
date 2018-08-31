@@ -61,3 +61,5 @@ git branch -d get-dir (borrar rama local)
 git checkout master
 git pull origin get-dir
 
+#Ver Informacion de Repositorio
+git remote show origin

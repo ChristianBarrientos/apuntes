@@ -105,3 +105,7 @@ epon(olt-5/onu-6/uni-1)#ctc alarm statistics pon-if downUndersize enable 10 10
 show olt 5 onu 27 pon ctc current-period-statistics 
 show olt 2 onu 27 uni 1 ctc current-period-statistics
 show olt 2 onu 27 uni 1 mac-address-table
+
+
+##OTRA POSIBILIDAD VER CONSUMO
+show olt 1 onu 1 uni 3 ctc current-period-statistics

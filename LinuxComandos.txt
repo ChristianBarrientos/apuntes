@@ -1,0 +1,31 @@
+Red y Procesos DEBIAN
+
+#INstalar paquete de herramientas de Red
+apt install net-tools
+#Ver conexiones
+netstat -tanp
+#Ver conexion por puerto
+fuser -n tcp <puerto>
+
+#Mata Procesos
+kill -9 <idproceso>
+
+#Eliminar paquetes rotos
+apt autoremove --purge paquete
+apt-get --purge remove
+#Chequear dependencias incumplidas
+apt check 
+#INstalar dependencias incumplidas
+apt -f install
+
+#Listar Paquetes
+dpkg --get-selections
+
+#Desbloquear dpkg
+fuser -vki  /var/lib/dpkg/lock
+
+#Archivo lista de las dependeicas /var/lib/dpkg/status
+Borrar la que provoca conflicto
+
+#Saber la memoria RAM
+free -m cat /proc/meminfo

@@ -1,0 +1,22 @@
+Crear un archivo en /etc/systemd/system/apiclima.service
+FOrmato de archivo:
+[Unit]
+Description=Daemon TTRSS Auto-Update Feeds
+After=network.target
+
+[Service]
+User=www-data
+ExecStart=/usr/local/proyectos/ApiClima/apiclimadaemon.sh
+
+[Install]
+WantedBy=multi-user.target
+
+
+Dar permisos de ejecucion a ..ApiClima/apiclimadaemon.sh
+Ejecutar chown respectivamenre
+ejecutar:
+	systemctl daemon-reload
+	systemctl restart apiclima.service
+
+ps aux --width 30 --sort -rss | head
+

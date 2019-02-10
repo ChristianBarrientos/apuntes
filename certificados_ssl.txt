@@ -1,0 +1,22 @@
+#Para Apache,wsgi y subdominios 
+https://es.stackoverflow.com/questions/62157/como-configurar-un-certificado-ssl-gratuito-de-lets-encrypt-en-apache
+#Para gestioncomercial.otium.xyz
+git clone https://github.com/letsencrypt/letsencrypt
+cd /home/placebo/letsencrypt
+./letsencrypt-auto certonly -a manual -d gestioncomercial.otium.xyz
+Se generan los certificados en: /etc/letsencrypt/live/gestioncomercial.otium.xyz
+Trasladamos los archivos para que apache los pueda ver
+cd /etc/ssl 
+mkdir gestioncomercial.otium.xyz
+cd gestioncomercial.otium.xyz/
+cp /etc/letsencrypt/live/gestioncomercial.otium.xyz/* .
+Agregamos lo siguiente al gestioncomercial.otium.xyz:
+    SSLEngine on
+    SSLCertificateKeyFile   /etc/ssl/gestioncomercial.otium.xyz/privkey.pem
+    SSLCertificateFile      /etc/ssl/gestioncomercial.otium.xyz/cert.pem
+    SSLCertificateChainFile /etc/ssl/gestioncomercial.otium.xyz/chain.pem
+
+http://gestioncomercial.otium.xyz/.well-known/acme-challenge/
+O7ytTnl9rDFQ5enb9PmfNoJLees0tJxm9vn1sgFfs_8
+#Para dominios apache directamente
+https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-debian-9

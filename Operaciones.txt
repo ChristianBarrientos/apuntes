@@ -14,6 +14,17 @@ Modificar Ancho de Banda
 epon(olt-5/onu-7/link-1)#sla downstream 10000016385 
 epon(olt-5/onu-7/link-1)#sla upstream 5000 1000u01000001
 
+UpStream
+Weight 1
+FIR 0 
+CIR 1
+PIR 3000
+
+DownStream
+Weight 1 
+Burst 512
+PIR 6000
+
 MONITOREO DE TRANSITO
 show olt 1 onu 3 pon ctc statistics -- Ver configuraion actual 
 (Debe estar Desactivado para mostrar valores de todas las uni?)
@@ -32,6 +43,13 @@ show olt 5 onu 6 pon ctc current-period-statistics -- Tomar Medida
 show olt 5 onu 6 pon ctc current-period-statistics -- Tomar Medida
 show olt 5 onu 6 pon ctc current-period-statistics -- Tomar Medida
 ....
+
+###Black List
+show auth blacklist  -- Listar
+auth blacklist add <oltID> onu <onu>	-- Agregar a BlackList
+auth blacklist add 1 onu 10
+auth blacklist delete <oltID> onu <onu>	-- Eliminar de BlackList
+
 epon(olt-5/onu-6)#pon ctc statistics disable -- Apagar Monitoreo
 /////
 epon(olt-5/onu-6/uni-1)#ctc statistics enable 5000 -- Encender Monitoreo de estadisticas EN uni

@@ -61,5 +61,17 @@ git branch -d get-dir (borrar rama local)
 git checkout master
 git pull origin get-dir
 
+
+…or create a new repository on the command line
+echo "# gestioncomercial" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:ChristianBarrientos/gestioncomercial.git
+git push -u origin master
+…or push an existing repository from the command line
+git remote add origin git@github.com:ChristianBarrientos/gestioncomercial.git
+git push -u origin master
+
 #Ver Informacion de Repositorio
 git remote show origin

@@ -1,0 +1,12 @@
+#Creamos el archivo .pgpass para las credenciales
+nano /var/lib/pgsql/.pgpass
+localhost:5432:gestioncomercial_helda:otium_gestioncomercial:ChristianBarrientos22.
+chmod 600  /var/lib/pgsql/.pgpass
+
+#El siguiente modelo de script se lo debe ingresar en el crontab
+#! /bin/sh
+BACKUP_DIR=/home/placebo/backups
+psql -h localhost -p 5432 -U otium_gestioncomercial -d gestioncomercial_helda -c 'vacuum analyze;';
+pg_dump -i -h localhost -p 5432 -U otium_gestioncomercial -F c -b -v -f "$BACKUP_DIR/gestioncomercial_helda.backup" gestioncomercial_helda
+cd $BACKUP_DIR
+tar -czvf gestioncomercial_helda_$(date +%F-%H).tgz gestioncomercial_helda.backup

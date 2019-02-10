@@ -28,8 +28,9 @@ Ver informacion de alarma configurada en la onu
 show olt 2 onu 1 ctc alarm port
 Ver configuracion VOIP de ONU
 ## show olt <oltId> onu <onuid> ctc voip < fax-modem |global-config|h248-config|h248-rtp-tid| h248-rtp-tid-info|iad-infor|sip-config>
-Configurar velocidad de subida onu (debe estar dentro de la onu)
-##sla upstream <fix> <cir> <pir> <weight>
+Configurar velocidad de subida onu (debe estar dentro de la onu y dentro de link 1)
+
+##sla upstream <fir> <cir> <pir> <weight>
 	<fix> Fijo de ancho de banda <0~950000>Kbps
 	<cir> Minimo(asegurado) de ancho de banda <1~950000>Kbps
 	<pir> Mejor esfuerzo de ancho de banda <512~1000000>Kbps
@@ -37,8 +38,27 @@ Configurar velocidad de subida onu (debe estar dentro de la onu)
 Ver ONLU LINK
 ## show olt <oltID> onu <onuID> link <linkID> acl
 Configurar velocidad de bajada onu (debe estar dentro de la onu)
-##sla downstream <pir> <burst>
+##sla downstream <pir> <burst> <weight>
 	<burst> Rafaga <128~16383>*256Byte
+	<pir> - peak information rate, <512~1000000>Kbps
+	<burst> - burst size, <128~16383>*256Byte
+	<weight> - WRR weight, <0~15>
+
+
+OLT2-TUC-8PON(olt-1/onu-1/link-1)# sla downstream 
+ <pir>                - peak information rate, <512~1000000>Kbps
+ <burst>              - burst size, <128~16383>*256Byte
+ <weight>             - WRR weight, <0~15>
+OLT2-TUC-8PON(olt-1/onu-1/link-1)# sla upstream   
+ <fir>                - fixed information rate, <0~950000>Kbps
+ <cir>                - committed information rate, <1~950000>Kbps
+ <pir>                - peak information rate, <512~1000000>Kbps
+ <weight>             - WRR weight, <1~20>
+
+
+
+
+
 Ver COnfiguracion de ancho debanda 
 ##show olt <oldID> onu <onuID> link <linkID> sla
 Ver ESTADISTICAS de performance de ONU

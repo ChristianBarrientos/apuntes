@@ -1,0 +1,31 @@
+https://www.gianoliveira.com/wordpress-de-local-a-remoto.html
+https://www.hostinger.co/tutoriales/como-solucionar-err-too-many-redirects-en-wordpress/
+#Instalar MYSQL
+apt-get install mysql-server -y
+#Cambiar Contraseña root
+use mysql;
+UPDATE user SET password=PASSWORD('nuevo_pass') WHERE user='root';
+
+#Crearn BD
+CREATE DATABASE dbname DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+#Crear Usuario y asignar privilegios
+GRANT ALL PRIVILEGES ON dbname.* TO 'dbuser'@'localhost' IDENTIFIED BY 'dbpass';
+#Restore BD Mysql
+mysql -p -u[user] [dbname] < db_backup.dump
+
+
+#Para OTIUM
+#Cambiar Contraseña root
+use mysql;
+UPDATE user SET password=PASSWORD('AlmitaBarrientos23.') WHERE user='root';
+
+#Crearn BD
+CREATE DATABASE ot_wp DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+#Crear Usuario y asignar privilegios
+GRANT ALL PRIVILEGES ON ot_wp.* TO 'ot_wp'@'localhost' IDENTIFIED BY '********';
+
+mysql -p -u ot_wp ot_wp < jose.sql
+
+define('WP_HOME','https://otium.xyz');
+define('WP_SITEURL','https://otium.xyz');
+

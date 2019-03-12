@@ -10,3 +10,10 @@ psql -h localhost -p 5432 -U otium_gestioncomercial -d gestioncomercial_helda -c
 pg_dump -i -h localhost -p 5432 -U otium_gestioncomercial -F c -b -v -f "$BACKUP_DIR/gestioncomercial_helda.backup" gestioncomercial_helda
 cd $BACKUP_DIR
 tar -czvf gestioncomercial_helda_$(date +%F-%H).tgz gestioncomercial_helda.backup
+
+
+
+
+###2019
+pg_restore -v -U postgres -h 10.0.0.44 -d toba_3_0 -1 guaraniunca.backup
+psql -U username -d mydatabase -c 'set search_path to negocio, desarrollo;update negocio.mdp_personas set clave='$2a$10$DABMxfZ2hc1.yN2r6kObOOnKOR2KtgtHH3nPqKfiPhEEGmoFpft3C';update desarrollo.apex_usuario set clave ='$2y$10$WUAkDCabHaCkMwF7e9YZfu5cUZoOSuta8h0.ZcT6DGpO4CuYYn53C';'

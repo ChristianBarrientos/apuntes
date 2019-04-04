@@ -62,6 +62,10 @@ git checkout master
 git pull origin get-dir
 
 
+##PROCESO PARA IGNORAR UN ARCHIVO
+agregarlo a .gitignore
+git rm --cached capresca_asistencia/capresca_asistencia/static/christian/js/host.js 
+
 …or create a new repository on the command line
 echo "# gestioncomercial" >> README.md
 git init

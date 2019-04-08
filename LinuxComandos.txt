@@ -29,3 +29,6 @@ Borrar la que provoca conflicto
 
 #Saber la memoria RAM
 free -m cat /proc/meminfo
+
+#Descomprimir tgz
+tar -xvzf archivo.tgz

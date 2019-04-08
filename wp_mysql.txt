@@ -17,7 +17,7 @@ mysql -p -u[user] [dbname] < db_backup.dump
 #Para OTIUM
 #Cambiar Contraseña root
 use mysql;
-UPDATE user SET password=PASSWORD('AlmitaBarrientos23.') WHERE user='root';
+UPDATE user SET password=PASSWORD('*************') WHERE user='root';
 
 #Crearn BD
 CREATE DATABASE ot_wp DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
@@ -26,6 +26,7 @@ GRANT ALL PRIVILEGES ON ot_wp.* TO 'ot_wp'@'localhost' IDENTIFIED BY '********';
 
 mysql -p -u ot_wp ot_wp < jose.sql
 
+wp.config ?
 define('WP_HOME','https://otium.xyz');
 define('WP_SITEURL','https://otium.xyz');
 

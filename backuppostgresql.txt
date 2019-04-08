@@ -1,3 +1,7 @@
+
+#Traer Ultimo BAkcuop
+scp guapos42unca@backup_siu:/home/backup/unca/guaraniunca.backup .
+
 #Creamos el archivo .pgpass para las credenciales
 nano /var/lib/pgsql/.pgpass
 localhost:5432:gestioncomercial_helda:otium_gestioncomercial:ChristianBarrientos22.
@@ -12,8 +16,19 @@ cd $BACKUP_DIR
 tar -czvf gestioncomercial_helda_$(date +%F-%H).tgz gestioncomercial_helda.backup
 
 
+#providers
+pg_dump  -h localhost -p 5432 -U djangouser -F c -b -v -f "/home/gestion/proyectomonitoreo/appgpon0804.backup" appgpon
+
+   'NAME': 'appgpon',
+    	'USER': 'djangouser',
+    	'PASSWORD': 'providers',
+    	'HOST': '181.10.133.124',
 
 
 ###2019
+pg_restore -v -U otium_gestioncomercial -h localhost -d otium_gestioncomercial -1 gestioncomercial_helda_20190325.backup
+
+pg_restore -v -U postgres -h 10.0.0.44 -d preinscripcion -1 preinscripcion.backup
+
 pg_restore -v -U postgres -h 10.0.0.44 -d toba_3_0 -1 guaraniunca.backup
 psql -U username -d mydatabase -c 'set search_path to negocio, desarrollo;update negocio.mdp_personas set clave='$2a$10$DABMxfZ2hc1.yN2r6kObOOnKOR2KtgtHH3nPqKfiPhEEGmoFpft3C';update desarrollo.apex_usuario set clave ='$2y$10$WUAkDCabHaCkMwF7e9YZfu5cUZoOSuta8h0.ZcT6DGpO4CuYYn53C';'

@@ -1,0 +1,7 @@
+gunzip pfSense-CE-memstick-2.3.1-RELEASE-amd64.img.gz
+
+#Hacer Pendrive booteable
+dd if=pfSense-CE-memstick-2.3.1-RELEASE-amd64.img of=/dev/sdf bs=1M
+
+#Ver Dispositivos de almacenamiento
+fdisk -l

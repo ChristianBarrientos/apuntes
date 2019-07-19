@@ -95,3 +95,15 @@ git push gitlab master
 git fetch gitlab
 #Solucion al error de negarse a fusionar historiias no relacionadas
 git pull gitlab master --allow-unrelated-histories
+
+#RAMIFICACION 
+git checkout -b iss53
+#ATAJO DE 
+git branch iss53
+#COMMIT COMO EN CUALKQUIER OTRO, YA QUE ESTAMOS PARADOS EN LA NUEVA RAMA
+git commit -a -m 'added a new footer [issue 53]'
+git checkout iss53
+#VOLVER A LA RAMA MASTER
+git checkout master
+#push 
+git push --set-upstream origin clean_code

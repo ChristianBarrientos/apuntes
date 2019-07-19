@@ -79,3 +79,19 @@ git push -u origin master
 
 #Ver Informacion de Repositorio
 git remote show origin
+#Agregar otro repositorio remoto
+git remote add gitlab-emacs.d git@gitlab.com:hefistion/emacs.d.git
+#Listar Repositorios remotos
+git remote -v
+#Renombrar repositorio remoto
+git remote rename origin gogs
+#Eliminarlo 
+git remote remove gitlab
+#Obtener Informatcion
+git remote show gitlab
+#Push A repositorio  remoto agregado 
+git push gitlab master
+#Descargar repositorio remoto
+git fetch gitlab
+#Solucion al error de negarse a fusionar historiias no relacionadas
+git pull gitlab master --allow-unrelated-histories

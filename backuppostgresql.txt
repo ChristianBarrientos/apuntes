@@ -32,3 +32,8 @@ pg_restore -v -U postgres -h 10.0.0.44 -d preinscripcion -1 preinscripcion.backu
 
 pg_restore -v -U postgres -h 10.0.0.44 -d toba_3_0 -1 guaraniunca.backup
 psql -U username -d mydatabase -c 'set search_path to negocio, desarrollo;update negocio.mdp_personas set clave='$2a$10$DABMxfZ2hc1.yN2r6kObOOnKOR2KtgtHH3nPqKfiPhEEGmoFpft3C';update desarrollo.apex_usuario set clave ='$2y$10$WUAkDCabHaCkMwF7e9YZfu5cUZoOSuta8h0.ZcT6DGpO4CuYYn53C';'
+
+BACKUP_DIR=/home/backups
+pg_dump -i -h localhost -p 5432 -U capresca_user -F c -b -v -f "$BACKUP_DIR/capresca_asistencia.backup" capresca_asistencia
+
+pg_restore -v -U postgres -h localhost -d capresca_asistencia -1 capresca_asistencia.backup

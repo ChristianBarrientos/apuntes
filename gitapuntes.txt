@@ -62,6 +62,10 @@ git checkout master
 git pull origin get-dir
 
 
+##PROCESO PARA IGNORAR UN ARCHIVO
+agregarlo a .gitignore
+git rm --cached capresca_asistencia/capresca_asistencia/static/christian/js/host.js 
+
 …or create a new repository on the command line
 echo "# gestioncomercial" >> README.md
 git init
@@ -75,3 +79,31 @@ git push -u origin master
 
 #Ver Informacion de Repositorio
 git remote show origin
+#Agregar otro repositorio remoto
+git remote add gitlab-emacs.d git@gitlab.com:hefistion/emacs.d.git
+#Listar Repositorios remotos
+git remote -v
+#Renombrar repositorio remoto
+git remote rename origin gogs
+#Eliminarlo 
+git remote remove gitlab
+#Obtener Informatcion
+git remote show gitlab
+#Push A repositorio  remoto agregado 
+git push gitlab master
+#Descargar repositorio remoto
+git fetch gitlab
+#Solucion al error de negarse a fusionar historiias no relacionadas
+git pull gitlab master --allow-unrelated-histories
+
+#RAMIFICACION 
+git checkout -b iss53
+#ATAJO DE 
+git branch iss53
+#COMMIT COMO EN CUALKQUIER OTRO, YA QUE ESTAMOS PARADOS EN LA NUEVA RAMA
+git commit -a -m 'added a new footer [issue 53]'
+git checkout iss53
+#VOLVER A LA RAMA MASTER
+git checkout master
+#push 
+git push --set-upstream origin clean_code

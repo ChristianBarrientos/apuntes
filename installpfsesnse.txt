@@ -1,0 +1,40 @@
+
+#Descomprimir Imagen
+gunzip pfSense-CE-memstick-2.3.1-RELEASE-amd64.img.gz
+
+#	Hacer Pendrive booteable
+
+#Formatear pendrive
+dd if=/dev/zero of=/dev/sdz bs=1M count=1
+
+#Cargar imagen en pendrive
+dd if=pfSense-CE-memstick-2.3.1-RELEASE-amd64.img of=/dev/sdf bs=1M
+
+#Ver Dispositivos de almacenamiento
+fdisk -l
+lsblk
+
+#Formatear Pendrive
+umount /dev/sdb1
+mkdosfs -F 32 -I /dev/sdb1
+
+ #Agregar status=progress al comando para modo verbose
+dd if=~/Downloads/pfSense-CE-2.3.4-RELEASE-amd64.iso of=/dev/sdc
+#Expulsar pendrive de forma segura
+eject /dev/sdb
+
+$ gzip -dc pfSense-memstick-2.4.4-RELEASE-amd64.img.gz | sudo dd of=/dev/sdz bs=1M
+$ sync
+
+
+#############################
+Asignar interfaces lan y wan
+ENtrar por web
+
+##Dentro de PFSENSE
+		1 -- COnfiguracion general (Definir timezone, dns, cambiar contraseña[admin,pfsense])
+		2 -- Firewal Alias 
+				-> Definir los rangos de ips para la red interna de trabajo
+				-> Definir los rangos de puertos de navegacion (80,442)
+		3 -- Firewall Reglas
+				-> Definir las reglas para realizar nateo entre las tarjetas de interfaces

@@ -1,0 +1,16 @@
+
+#EN SERVIDOR
+cd ~
+mkdir repository.git
+cd repository.git
+git --bare init
+git config core.sharedRepository true
+
+#EN LOCAL
+mkdir repository
+cd repository
+git init
+git add *
+git commit -m "Initial import"
+git remote add origin git+ssh://root@45.6.5.3:8127/home/git/appgpon
+git push origin master

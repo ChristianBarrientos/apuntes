@@ -1,0 +1,7 @@
+#Instalacion IDE
+wget https://www.arduino.cc/download_handler.php?f=/arduino-1.8.9-linuxarm.tar.xz
+tar xvf arduino-VERSION-linux64.tar.xz
+cd arduino-1.8.9
+sh install.sh
+#mkdir ~/bin/
+#ln -s ~/arduino-1.8.9/arduino ~/bin/arduino

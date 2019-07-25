@@ -5,3 +5,13 @@ cd arduino-1.8.9
 sh install.sh
 #mkdir ~/bin/
 #ln -s ~/arduino-1.8.9/arduino ~/bin/arduino
+
+
+#Logs Kernel
+dmesg -t | tail
+#Placas conectadas..
+ls /dev/ttyA*
+#Dialout group
+adduser christian dialout
+#Ver ID de usuario
+id

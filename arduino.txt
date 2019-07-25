@@ -11,7 +11,10 @@ sh install.sh
 dmesg -t | tail
 #Placas conectadas..
 ls /dev/ttyA*
+##Agregar el usuario no root para que pueda acceder al puerto serial y subir el codigo al core
 #Dialout group
-adduser christian dialout
+usermod -a -G dialout christian
+chmod a+rw /dev/ttyACM0
+#adduser christian dialout
 #Ver ID de usuario
 id

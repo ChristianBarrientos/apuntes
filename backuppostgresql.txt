@@ -37,3 +37,6 @@ BACKUP_DIR=/home/backups
 pg_dump -i -h localhost -p 5432 -U capresca_user -F c -b -v -f "$BACKUP_DIR/capresca_asistencia.backup" capresca_asistencia
 
 pg_restore -v -U postgres -h localhost -d capresca_asistencia -1 capresca_asistencia.backup
+
+##GUARDAR EN ARCHIVO
+psql -p 5432 -U USERBD -h HOSTBD -d NAMEBD -A -F, -c "CONSULTA" > /home/christian/user_data.csv

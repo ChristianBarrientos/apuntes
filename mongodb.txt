@@ -1,0 +1,12 @@
+#entrar
+mongo
+#listar bd
+show dbs;
+#Selec bd
+use nombrebd;
+#INsertar registros
+db.[coleccion].insert(   [documento en formato JSON]  ) ;
+#VIsualizar coleciones 
+show collections;
+#LÑista de DOcumentos
+db.usuario.find().pretty();

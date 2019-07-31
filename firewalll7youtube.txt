@@ -1,0 +1,1 @@
+youtube.com|googlevideo.com|videoplayback|netflix|^.*(host|HOST).+(netflix).*\$|^.*(get|GET).+(\\.flv|\\.mp4|netflix|\\.swf).*\$

@@ -107,3 +107,10 @@ git checkout iss53
 git checkout master
 #push 
 git push --set-upstream origin clean_code
+
+##Merge de Dos Archivos de Dos ramas DIferentes
+##merge de rama no master a rama master, solo uno (o varios) archivos
+git checkout source_branch -- path_archivo_branch_no_master
+git reset path_archivo_branch_no_master
+git add -p path_archivo_branch_no_master
+git commit -m "'Merge' these changes"

@@ -1,0 +1,4 @@
+#Instalar openvpn
+apt-get install openvpn
+apt-get install openvpn network-manager-openvpn-gnome
+#

@@ -1,0 +1,15 @@
+#Configuracion de Red Lan
+    /ip address
+    add address=192.168.1.1/24 interface=ether1
+    /ip pool
+    add name=pool-RedLAN ranges=192.168.1.10-192.168.1.20
+    /ip dhcp-server
+    add address-pool="pool-RedLAN" interface=ether1 name=server-RedLAN
+    /ip dhcp-server network
+    add address=192.168.1.0/24 dns-server=192.168.1.1 gateway=192.168.1.1
+
+
+#FUncion BLoqueo de paginas
+FIREWALL - LAYER 7 
+	--YOUTUBE
+	youtube.com|googlevideo.com|videoplayback|netflix|^.*(host|HOST).+(netflix).*\$|^.*(get|GET).+(\\.flv|\\.mp4|netflix|\\.swf).*\$

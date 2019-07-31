@@ -1,5 +1,7 @@
 Red y Procesos DEBIAN
-
+#SYSTEMCTL -- script de inicio del sistema (init.d)
+systemctl edit apiclima.service  --> Editar la configuracion del script
+systemctl show apiclima.service -p TimeoutStopUSec --> Ver el parametro seteado de Timeout
 #INstalar paquete de herramientas de Red
 apt install net-tools
 #Ver conexiones

@@ -1,0 +1,6 @@
+#Verificar ultimas versiones de dependecias 
+npm install -g npm-check-updates
+ncu    --> lista las dependencias
+ncu -u --> Actualiza las tecnologias, las del primero grupo
+ncu -a --> Actualiza todas las tencologias
+npm uninstall dependencia --> Elimina dependencia

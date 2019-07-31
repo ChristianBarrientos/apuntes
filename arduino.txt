@@ -1,0 +1,20 @@
+#Instalacion IDE
+wget https://www.arduino.cc/download_handler.php?f=/arduino-1.8.9-linuxarm.tar.xz
+tar xvf arduino-VERSION-linux64.tar.xz
+cd arduino-1.8.9
+sh install.sh
+#mkdir ~/bin/
+#ln -s ~/arduino-1.8.9/arduino ~/bin/arduino
+
+
+#Logs Kernel
+dmesg -t | tail
+#Placas conectadas..
+ls /dev/ttyA*
+##Agregar el usuario no root para que pueda acceder al puerto serial y subir el codigo al core
+#Dialout group
+usermod -a -G dialout christian
+chmod a+rw /dev/ttyACM0
+#adduser christian dialout
+#Ver ID de usuario
+id

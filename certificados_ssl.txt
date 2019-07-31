@@ -20,3 +20,8 @@ http://gestioncomercial.otium.xyz/.well-known/acme-challenge/
 O7ytTnl9rDFQ5enb9PmfNoJLees0tJxm9vn1sgFfs_8
 #Para dominios apache directamente
 https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-debian-9
+
+
+
+#Listar VirtualHost Apache2
+apachectl -S

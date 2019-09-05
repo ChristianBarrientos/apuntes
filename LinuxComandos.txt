@@ -34,3 +34,7 @@ free -m cat /proc/meminfo
 
 #Descomprimir tgz
 tar -xvzf archivo.tgz
+
+#CRONTAB
+crontab -u username -e
+0 3 * * * /home/user/home-backup.sh

@@ -40,3 +40,8 @@ pg_restore -v -U postgres -h localhost -d capresca_asistencia -1 capresca_asiste
 
 ##GUARDAR EN ARCHIVO
 psql -p 5432 -U USERBD -h HOSTBD -d NAMEBD -A -F, -c "CONSULTA" > /home/christian/user_data.csv
+
+#CREATED .pgpass
+nano /root/.pgpass 
+hostname:port:database:username:password
+chmod 600 /root/.pgpass

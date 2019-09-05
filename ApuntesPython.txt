@@ -26,3 +26,6 @@ from mis_apps.x import X,Y	  #Importar los modelos a trabajar
 nombremodelo.objects.create	  #Crear Objeto e insertar en BD
 objeto.save			  #Guardar se plasma en BD
 
+#INstall pip
+apt install python3-pip
+

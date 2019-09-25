@@ -45,3 +45,9 @@ psql -p 5432 -U USERBD -h HOSTBD -d NAMEBD -A -F, -c "CONSULTA" > /home/christia
 nano /root/.pgpass 
 hostname:port:database:username:password
 chmod 600 /root/.pgpass
+
+#psql: no se pudo conectar con el servidor: No existe el fichero o el directorio
+service postgresql start
+pg_lsclusters -> Listar los clusteres
+#SI no esta iniciado el cluster
+pg_ctlcluster 9.6 main start -> Iniciar el cluster

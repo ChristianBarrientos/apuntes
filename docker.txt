@@ -1,0 +1,11 @@
+#Agregar usuario no root a un grupo creado para tener permisos de conecion al socket de unix
+groupadd docker
+usermod -aG docker $USER
+docker run hello-world
+reboot
+
+#Crear Volumenes externos
+docker volume create --name=name_volumen
+
+#Crear Proyecto Django con docker-compose. Imagen DOcker Django Base
+docker-compose run web django-admin.py startapp django_environments webapp

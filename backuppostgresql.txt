@@ -1,6 +1,5 @@
 
-#Traer Ultimo BAkcuop
-scp guapos42unca@backup_siu:/home/backup/unca/guaraniunca.backup .
+
 
 #Creamos el archivo .pgpass para las credenciales
 nano /var/lib/pgsql/.pgpass
@@ -19,10 +18,6 @@ tar -czvf gestioncomercial_helda_$(date +%F-%H).tgz gestioncomercial_helda.backu
 #providers
 pg_dump  -h localhost -p 5432 -U djangouser -F c -b -v -f "/home/placebo/backups/appgpon2304.backup" appgpon
 
-   'NAME': 'appgpon',
-    	'USER': 'djangouser',
-    	'PASSWORD': 'providers',
-    	'HOST': '181.10.133.124',
 
 psql -h 10.0.0.44 -p 5432 -U postgres toba_3_0 < clave_toba.sql
 ###2019

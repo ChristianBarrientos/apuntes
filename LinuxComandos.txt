@@ -38,3 +38,7 @@ tar -xvzf archivo.tgz
 #CRONTAB
 crontab -u username -e
 0 3 * * * /home/user/home-backup.sh
+
+W: Error de GPG: http://ppa.launchpad.net precise Release: Las firmas siguientes no se pudieron verificar porque su llave pública no está disponible: NO_PUBKEY 1F3045A5DF7587C3
+
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 1F3045A5DF7587C3

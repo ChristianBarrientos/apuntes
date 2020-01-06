@@ -1,0 +1,6 @@
+#Error DPKG
+dpkg: atención: `ldconfig' no se ha encontrado en el PATH o no es ejecutable
+dpkg: atención: `start-stop-daemon' no se ha encontrado en el PATH o no es ejecutable
+dpkg: error: no se ha encontrado 2 en el PATH o no es ejecutable
+
+export PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin

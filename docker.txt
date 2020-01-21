@@ -9,3 +9,13 @@ docker volume create --name=name_volumen
 
 #Crear Proyecto Django con docker-compose. Imagen DOcker Django Base
 docker-compose run web django-admin.py startapp django_environments webapp
+
+
+####
+#INstalar 
+apt update;apt upgrade -y 
+docker version
+apt install docker.io
+#Crear contenedor con nginx y un archivo de home al contenedor(VOlumenes) y exponer puertos (8080 home, 80 contenedor)
+docker run -v /home/christian/ejemplos/index.html:/usr/share/nginx/html/index.html:ro -p 8080:80 -d nginx:1.15.7
+

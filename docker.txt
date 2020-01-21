@@ -19,3 +19,13 @@ apt install docker.io
 #Crear contenedor con nginx y un archivo de home al contenedor(VOlumenes) y exponer puertos (8080 home, 80 contenedor)
 docker run -v /home/christian/ejemplos/index.html:/usr/share/nginx/html/index.html:ro -p 8080:80 -d nginx:1.15.7
 
+
+####
+#Instalar Kubectl
+
+sudo apt-get update && sudo apt-get install -y apt-transport-https
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install -y kubectl
+

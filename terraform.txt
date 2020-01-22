@@ -1,0 +1,8 @@
+#Install 
+apt-get install unzip
+wget https://releases.hashicorp.com/terraform/0.12.18/terraform_0.12.18_linux_amd64.zip #Last version...
+unzip terraform_0.12.18_linux_amd64.zip
+mv terraform /usr/local/bin/
+terraform --version 
+
+#Archivo providers -> Declara el proveedor (DO, AMS,...)

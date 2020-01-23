@@ -6,3 +6,5 @@ mv terraform /usr/local/bin/
 terraform --version 
 
 #Archivo providers -> Declara el proveedor (DO, AMS,...)
+#Variables de entorno, TN_VAR_NombreVariable
+export TF_VAR_digitalocean_token=Key

@@ -1,0 +1,66 @@
+#Crear cluster de Kubernetes con terraform, en digital ocean
+
+##Exportar variable de api DO
+export TF_VAR_digitalocean_token=key..
+terraform init # para descargar el plugin del proveedor, declarado en provider.tf
+-----------------
+_provider.tf
+-----------------
+variable "digitalocean_token" {}
+
+# Configure the DigitalOcean Provider
+provider "digitalocean" {
+  token = "${var.digitalocean_token}"
+}
+----------------------------------
+terraform apply # para crear ell recurso llamado cluster-capresca, nombre de cluster cluster-kb, nombre del pool de nodos,etc...
+-----------------
+01-main.tf
+-----------------
+resource "digitalocean_kubernetes_cluster" "cluster-capresca" {
+  name    = "cluster-kb"
+  region  = "nyc1"
+  version = "1.16.2-do.3"
+
+  node_pool {
+    name       = "capresca-nodes"
+    size       = "s-1vcpu-2gb"
+    node_count = 2
+  }
+}
+----------------------------------
+#Obtener informacion del cluster creado, para poder manejarlo con kubectl
+-----------------
+02-output.tf
+-----------------
+resource "local_file" "kubernetes_config" {
+        content = "${digitalocean_kubernetes_cluster.cluster-capresca.kube_config.0.raw_config}"
+        filename = "kubeconfig.yaml"
+}
+----------------------------------
+terraform apply
+#genera un archivo kubeconfig.yaml
+kubectl --kubeconfig=kubeconfig.yaml get node  #Probar el archivo
+
+#Crear namespace en el cluster de kubernetes
+-----------------
+03-kubernetes.tf
+----------------------------------
+provider "kubernetes" {
+        config_path = "${local_file.kubernetes_config.filename}" -->trae el archivo declarado en 02-output.tf
+}
+
+resource "kubernetes_namespace" "example" {
+        metadata {
+                name = "my-first-namespace"
+        }
+}
+----------------------------------
+
+
+
+###Otros comandos
+terraform destroy -> destruye la configuracion en el proveedor
+terraform plan -> plan a ejecutar cuando se realiza el apply
+kubectl --kubeconfig=kubeconfig.yaml get ns -->Get namespace del cluster de kubernetes
+

@@ -18,8 +18,11 @@ docker version
 apt install docker.io
 #Crear contenedor con nginx y un archivo de home al contenedor(VOlumenes) y exponer puertos (8080 home, 80 contenedor)
 docker run -v /home/christian/ejemplos/index.html:/usr/share/nginx/html/index.html:ro -p 8080:80 -d nginx:1.15.7
-
-
+##Permisos par ausuario no root
+sudo chgrp docker /lib/systemd/system/docker.socket
+sudo chmod g+w /lib/systemd/system/docker.socket
+sudo chgrp $USER /lib/systemd/system/docker.socket
+sudo chmod g+w /lib/systemd/system/docker.socket
 ####
 #Instalar Kubectl
 

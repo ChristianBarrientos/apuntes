@@ -9,3 +9,6 @@ sudo apt-get install -y kubectl
 -Kubernetes -> Crear Cluster
 ssh-keygen
 cp ~/.ssh/
+
+#Set in variable entorno a kubeconfig.yaml
+export KUBECONFIG=$HOME/kubeconfig.yaml

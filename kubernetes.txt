@@ -11,4 +11,6 @@ ssh-keygen
 cp ~/.ssh/
 
 #Set in variable entorno a kubeconfig.yaml
+##Moverlo, tambien, a .kube/config
+
 export KUBECONFIG=$HOME/kubeconfig.yaml

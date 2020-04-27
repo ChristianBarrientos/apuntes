@@ -25,3 +25,8 @@ https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s
 
 #Listar VirtualHost Apache2
 apachectl -S
+
+#Renovacion
+./letsencrypt-auto certonly --force-renew -d pnnavicuañacmmt.com
+#actualizar el .conf
+#restart service

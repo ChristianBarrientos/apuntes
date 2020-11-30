@@ -12,8 +12,19 @@ docker-compose run web django-admin.py startapp django_environments webapp
 
 #Build 
 docker build -t helloapp:v1 .
-
-
+#Run
+docker run -d -p 80:80 my_image service nginx start
+#LIstar
+docker images
+#Listar procesos
+docker ps -a
+#Crear contenedor personalizado
+  docker run -t -i ubuntu /bin/bash
+  apt install wget nano apache2
+  docker ps -a
+  docker commit [ID_container] apache-ubuntu
+#Eliminar imagen
+ docker image rm apache-ubuntu
 ####
 #INstalar 
 apt update;apt upgrade -y 

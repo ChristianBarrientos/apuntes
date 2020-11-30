@@ -10,6 +10,9 @@ docker volume create --name=name_volumen
 #Crear Proyecto Django con docker-compose. Imagen DOcker Django Base
 docker-compose run web django-admin.py startapp django_environments webapp
 
+#Build 
+docker build -t helloapp:v1 .
+
 
 ####
 #INstalar 

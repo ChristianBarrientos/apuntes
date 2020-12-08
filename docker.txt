@@ -50,4 +50,13 @@ sudo apt-get install -y kubectl
 kubectl get nodes
 kubectl get nodes -o wide
 
+#CLear docker 
+docker system prune
 
+docker container prune
+
+docker image prune
+
+docker network prune
+
+docker volume prune```

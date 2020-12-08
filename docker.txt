@@ -60,3 +60,11 @@ docker image prune
 docker network prune
 
 docker volume prune```
+
+#LIstar volumenes docker
+docker volume ls
+#ELiminar todo el docker compose
+#Persistencia
+https://stackoverflow.com/questions/38793821/docker-compose-how-to-store-database-data/39636509
+docker-compose down -v
+

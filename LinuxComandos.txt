@@ -42,3 +42,6 @@ crontab -u username -e
 W: Error de GPG: http://ppa.launchpad.net precise Release: Las firmas siguientes no se pudieron verificar porque su llave pública no está disponible: NO_PUBKEY 1F3045A5DF7587C3
 
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 1F3045A5DF7587C3
+
+##Copiar en portapapeles
+xclip -sel clip < ~/.ssh/id_rsa.pub

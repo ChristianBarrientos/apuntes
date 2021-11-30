@@ -14,3 +14,6 @@ cp ~/.ssh/
 ##Moverlo, tambien, a .kube/config
 
 export KUBECONFIG=$HOME/kubeconfig.yaml
+
+##Obtener kubeconfig 
+ kubectl config view --raw > /root/.kube/config

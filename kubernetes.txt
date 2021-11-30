@@ -17,3 +17,6 @@ export KUBECONFIG=$HOME/kubeconfig.yaml
 
 ##Obtener kubeconfig 
  kubectl config view --raw > /root/.kube/config
+ 
+##Delete pv in, example, vault deploy
+for i in `kubectl get pvc -n vault | grep -v NAME | awk '{print $1}'`; do kubectl delete pvc $i -n vault ; done

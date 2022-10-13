@@ -45,3 +45,14 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 1F3045A5DF7587C3
 
 ##Copiar en portapapeles
 xclip -sel clip < ~/.ssh/id_rsa.pub
+
+# Resize de EBS en EC2
+https://stackoverflow.com/questions/59420015/unable-to-growpart-because-no-space-left
+sudo apt-get autoclean
+sudo apt-get autoremove
+sudo mount -o size=10M,rw,nodev,nosuid -t tmpfs tmpfs /tmp
+sudo growpart /dev/xvda 1
+sudo lsblk 
+sudo resize2fs /dev/xvda1
+sudo umount /tmp
+sudo reboot
